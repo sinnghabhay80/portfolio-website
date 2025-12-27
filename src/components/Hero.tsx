@@ -91,7 +91,7 @@ const Hero = () => {
               className="font-mono border-border hover:border-primary hover:text-primary"
               asChild
             >
-              <a href="/Abhay-Singh-Resume.pdf" download>
+              <a href={import.meta.env.MODE === "production"? "/portfolio-website/Abhay-Singh-Resume.pdf" : "/Abhay-Singh-Resume.pdf"} download>
                 <Download className="w-4 h-4 mr-2" />
                 Resume
               </a>
