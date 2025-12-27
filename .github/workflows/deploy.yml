@@ -1,9 +1,9 @@
-name: Deploy Vite site to GitHub Pages
+name: Deploy Vite to GitHub Pages
 
 on:
   push:
-    branches: [main]     # auto deploy when pushing to main
-  workflow_dispatch:     # also allow manual trigger
+    branches: ["main"]
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -16,21 +16,20 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 18
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci || npm install
 
-      - name: Build Vite project
+      - name: Build Site
         run: npm run build
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v4
+      - name: Upload Build Artifact
+        uses: actions/upload-artifact@v4
         with:
-          path: ./dist        # <-- make sure dist exists!
+          path: dist
 
   deploy:
     needs: build
@@ -38,6 +37,5 @@ jobs:
     environment:
       name: github-pages
     steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
+      - name: Deploy to Pages
         uses: actions/deploy-pages@v2
