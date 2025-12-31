@@ -32,7 +32,7 @@ const Contact = () => {
     {
       icon: Linkedin,
       label: 'LinkedIn',
-      href: 'https://www.linkedin.com/in/abhay-singh-bb8441202/',
+      href: 'https://www.linkedin.com/in/abhaysingh80/',
     },
   ];
 

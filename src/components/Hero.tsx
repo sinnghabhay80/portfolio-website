@@ -113,7 +113,7 @@ const Hero = () => {
               className="font-mono border-border hover:border-accent hover:text-accent"
               asChild
             >
-              <a href="https://www.linkedin.com/in/abhay-singh-bb8441202/" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.linkedin.com/in/abhaysingh80/" target="_blank" rel="noopener noreferrer">
                 <Linkedin className="w-4 h-4 mr-2" />
                 LinkedIn
               </a>
