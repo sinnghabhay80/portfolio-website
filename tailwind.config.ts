@@ -53,6 +53,7 @@ export default {
         },
         terminal: {
           green: "hsl(var(--terminal-green))",
+          red: "hsl(var(--terminal-red))",
           cyan: "hsl(var(--terminal-cyan))",
           magenta: "hsl(var(--terminal-magenta))",
         },

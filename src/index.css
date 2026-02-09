@@ -38,6 +38,7 @@
 
     /* Custom tokens */
     --terminal-green: 142 70% 50%;
+    --terminal-red: 0 70% 50%;
     --terminal-cyan: 180 100% 50%;
     --terminal-magenta: 280 100% 65%;
     --glow-primary: 0 0 30px hsl(170 100% 50% / 0.4);

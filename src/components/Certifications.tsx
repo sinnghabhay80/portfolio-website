@@ -5,14 +5,16 @@ const Certifications = () => {
     {
       title: 'Databricks Certified Data Engineer Associate',
       issuer: 'Databricks',
-      date: 'Nov 2023 - Nov 2025',
-      active: false,
+      date: 'Nov 2023 - Jan 2028',
+      active: true,
+      href: 'https://credentials.databricks.com/f4c6e0d9-0b24-4640-92f6-ad1896e253f2'
     },
     {
       title: 'Databricks Lakehouse Fundamentals',
       issuer: 'Databricks',
       date: 'Jan 2025 - Jan 2026',
-      active: true,
+      active: false,
+      href: 'https://credentials.databricks.com/7cb0a9dd-b05a-4a98-9c56-2f51003409c2'
     },
   ];
 
@@ -49,6 +51,12 @@ const Certifications = () => {
               </h3>
               <div className="space-y-4">
                 {certifications.map((cert) => (
+                  <a 
+                    href={cert.href}
+                    rel="noopener noreferrer"
+                    target="_blank"
+                    className='block'
+                  >
                   <div key={cert.title} className="glass-card p-4 hover:border-primary/30 transition-all">
                     <div className="flex items-start justify-between gap-2">
                       <div>
@@ -60,12 +68,18 @@ const Certifications = () => {
                           ACTIVE
                         </span>
                       )}
+                      {!cert.active && (
+                        <span className="px-2 py-0.5 bg-terminal-red/20 text-terminal-red text-xs font-mono rounded">
+                          INACTIVE
+                        </span>
+                      )}
                     </div>
                     <div className="flex items-center gap-1 mt-2 text-xs text-muted-foreground">
                       <Calendar className="w-3 h-3" />
                       <span className="font-mono">{cert.date}</span>
                     </div>
                   </div>
+                  </a>
                 ))}
               </div>
             </div>
