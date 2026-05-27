@@ -4,20 +4,27 @@ import { Button } from '@/components/ui/button';
 
 const Hero = () => {
   const [displayText, setDisplayText] = useState('');
-  const fullText = 'Data Engineer';
+  const titles = ['Data Engineer', 'Platform Engineer', 'AI Systems Builder'];
+  const [titleIndex, setTitleIndex] = useState(0);
+  const fullText = titles[titleIndex];
 
   useEffect(() => {
-    let index = 0;
+    let charIndex = 0;
+    setDisplayText('');
     const timer = setInterval(() => {
-      if (index <= fullText.length) {
-        setDisplayText(fullText.slice(0, index));
-        index++;
+      if (charIndex <= fullText.length) {
+        setDisplayText(fullText.slice(0, charIndex));
+        charIndex++;
       } else {
         clearInterval(timer);
+        // Pause then cycle to next title
+        setTimeout(() => {
+          setTitleIndex((prev) => (prev + 1) % titles.length);
+        }, 1800);
       }
     }, 100);
     return () => clearInterval(timer);
-  }, []);
+  }, [titleIndex]);
 
   const scrollToAbout = () => {
     document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });

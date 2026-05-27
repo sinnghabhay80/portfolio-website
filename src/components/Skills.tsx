@@ -2,19 +2,35 @@ const Skills = () => {
   const skillCategories = [
     {
       category: 'Languages',
-      skills: ['SQL', 'Python', 'Scala'],
+      skills: ['Python', 'Scala', 'SQL'],
     },
     {
-      category: 'Big Data',
-      skills: ['Apache Spark (Core, SQL, Streaming)', 'PySpark', 'Apache Kafka', 'Delta Lake'],
+      category: 'Processing & Streaming',
+      skills: ['Apache Spark (Core, SQL, Streaming)', 'PySpark', 'Apache Kafka', 'Event-Driven Architecture'],
     },
     {
-      category: 'Cloud & Tools',
-      skills: ['Databricks', 'Azure SQL', 'Azure DevOps'],
+      category: 'Storage & Lakehouse',
+      skills: ['Delta Lake', 'Medallion Architecture (Bronze/Silver/Gold)', 'ADLS Gen2', 'Azure SQL', 'MinIO'],
+    },
+    {
+      category: 'Cloud & DevOps',
+      skills: ['Azure Data Factory', 'Azure Databricks', 'Databricks Notebooks', 'Azure DevOps REST API', 'Docker', 'CI/CD Pipelines'],
     },
     {
       category: 'Orchestration',
-      skills: ['Azure Data Factory', 'Apache Airflow', 'CI/CD Pipelines'],
+      skills: ['Apache Airflow', 'ADF Pipelines'],
+    },
+    {
+      category: 'AI & Agents',
+      skills: ['LLM Agent Design', 'OpenAI Function-Calling', 'Azure OpenAI', 'Databricks-hosted LLMs (Claude Sonnet)', 'Agentic Tool Orchestration', 'Streamlit'],
+    },
+    {
+      category: 'Data Quality',
+      skills: ['Schema Evolution', 'Data Reconciliation', 'Idempotent Pipelines'],
+    },
+    {
+      category: 'Monitoring & Observability',
+      skills: ['Prometheus', 'Grafana', 'Azure Logic Apps', 'Custom Pipeline Alerting'],
     },
   ];
 
@@ -43,7 +59,9 @@ const Skills = () => {
               <div key={cat.category} className="glass-card p-6">
                 <div className="flex items-center gap-2 mb-4">
                   <span className="text-primary font-mono text-sm">const</span>
-                  <span className="text-foreground font-mono font-medium">{cat.category.toLowerCase().replace(' & ', '_')}</span>
+                  <span className="text-foreground font-mono font-medium">
+                    {cat.category.toLowerCase().replace(/ & /g, '_').replace(/ /g, '_')}
+                  </span>
                   <span className="text-muted-foreground font-mono">=</span>
                   <span className="text-accent font-mono">[</span>
                 </div>

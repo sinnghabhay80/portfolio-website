@@ -1,11 +1,11 @@
-import { Terminal, Database, Cloud, Workflow } from 'lucide-react';
+import { Terminal, Database, Cloud, Workflow, Bot } from 'lucide-react';
 
 const About = () => {
   const highlights = [
-    { icon: Database, label: 'Data Pipelines', desc: 'ETL & ELT workflows' },
+    { icon: Database, label: 'Data Pipelines', desc: 'ETL & ELT at PB scale' },
     { icon: Cloud, label: 'Cloud Native', desc: 'Azure & Databricks' },
-    { icon: Workflow, label: 'Automation', desc: 'CI/CD & DevOps' },
-    { icon: Terminal, label: 'Big Data', desc: 'Spark & Kafka' },
+    { icon: Workflow, label: 'Automation', desc: 'CI/CD & Release Eng.' },
+    { icon: Bot, label: 'AI Agents', desc: 'LLM-powered systems' },
   ];
 
   return (
@@ -29,9 +29,11 @@ const About = () => {
   "name": "Abhay Singh",
   "role": "Data Engineer",
   "company": "Xebia IT Architects",
-  "experience": "2+ years",
+  "client": "Sephora",
+  "experience": "3+ years",
   "focus": [
-    "Data Pipeline Development",
+    "Platform Automation",
+    "Agentic AI Systems",
     "Big Data Engineering",
     "Cloud Architecture"
   ]
@@ -43,17 +45,21 @@ const About = () => {
 
             <div className="space-y-4">
               <p className="text-muted-foreground leading-relaxed">
-                I'm a Data Engineer at <span className="text-primary font-medium">Xebia IT Architects</span>, 
-                passionate about building scalable data pipelines and architecting robust data solutions. 
+                I'm a Data Engineer at <span className="text-primary font-medium">Xebia IT Architects</span>,
+                embedded across two simultaneous functions on the Sephora retail data platform —
+                L2 production support and active feature development — across{' '}
+                <span className="text-primary font-medium">~1,500 active pipelines</span> on a PB-scale lakehouse.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                With expertise in <span className="text-primary">Spark</span>, <span className="text-primary">Databricks</span>, 
-                and <span className="text-primary">Azure</span>, I develop end-to-end data platforms that power analytics 
-                and drive <span className="text-accent font-medium">$848K in business value</span>.
+                Most recently I solo-built <span className="text-primary font-medium">ARIA</span> — a production
+                agentic AI triage system that reduced L2 pipeline failure investigation from{' '}
+                <span className="text-accent font-medium">30–60 minutes to 2–5 minutes</span> per incident,
+                orchestrating 23 tools across ADF, Databricks, ServiceNow, and Azure DevOps via a custom LLM agent loop.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                I thrive on building automation tools and CI/CD pipelines that accelerate development cycles 
-                and enable teams to ship faster.
+                I build the systems that make data pipelines reliable, deployable, and maintainable at scale —
+                from release engineering and CI/CD automation to cloud cost optimisation driving{' '}
+                <span className="text-accent font-medium">~$848K in annual savings</span>.
               </p>
             </div>
           </div>
@@ -61,7 +67,7 @@ const About = () => {
           {/* Highlight cards */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {highlights.map((item, index) => (
-              <div 
+              <div
                 key={item.label}
                 className="glass-card p-4 text-center hover:border-primary/50 transition-all duration-300 group"
                 style={{ animationDelay: `${index * 0.1}s` }}
