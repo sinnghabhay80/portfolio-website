@@ -1,39 +1,49 @@
-import { Award, GraduationCap, Trophy, Calendar } from 'lucide-react';
+import { Award, GraduationCap, Trophy, Calendar, ExternalLink } from 'lucide-react';
 
 const Certifications = () => {
   const certifications = [
     {
+      title: 'Databricks Certified Data Engineer Professional',
+      issuer: 'Databricks',
+      date: 'Jun 2026 – Jun 2028',
+      badge: 'PROFESSIONAL',
+      badgeColor: 'bg-accent/20 text-accent',
+      href: 'https://credentials.databricks.com/6de1b80b-e707-484a-ae55-1792aabcc80c',
+    },
+    {
       title: 'Databricks Certified Data Engineer Associate',
       issuer: 'Databricks',
-      date: 'Nov 2023 - Jan 2028',
-      active: true,
-      href: 'https://credentials.databricks.com/f4c6e0d9-0b24-4640-92f6-ad1896e253f2'
+      date: 'Nov 2023 – Jan 2028',
+      badge: 'ACTIVE',
+      badgeColor: 'bg-terminal-green/20 text-terminal-green',
+      href: 'https://credentials.databricks.com/f4c6e0d9-0b24-4640-92f6-ad1896e253f2',
     },
     {
       title: 'Databricks Lakehouse Fundamentals',
       issuer: 'Databricks',
-      date: 'Jan 2025 - Jan 2026',
-      active: false,
-      href: 'https://credentials.databricks.com/7cb0a9dd-b05a-4a98-9c56-2f51003409c2'
+      date: 'Jan 2025 – Jan 2026',
+      badge: 'ACTIVE',
+      badgeColor: 'bg-terminal-green/20 text-terminal-green',
+      href: 'https://credentials.databricks.com/7cb0a9dd-b05a-4a98-9c56-2f51003409c2',
     },
   ];
 
   const awards = [
     {
-      title: 'Galaxy Best Project Team (Tauras) Award',
+      title: 'Galaxy Best Project Team (Taurus) Award',
       issuer: 'Xebia IT Architects',
     },
     {
-      title: 'GEM Award (3x)',
+      title: 'GEM Award (×4)',
       issuer: 'Xebia IT Architects',
     },
   ];
 
   const education = {
-    degree: 'B.Tech. CSE specialization in AIML',
+    degree: 'B.Tech. CSE — Specialization in AI & ML',
     institution: 'Sushant University',
     location: 'Gurgaon, India',
-    period: '2019 - 2023',
+    period: '2019 – 2023',
   };
 
   return (
@@ -51,34 +61,33 @@ const Certifications = () => {
               </h3>
               <div className="space-y-4">
                 {certifications.map((cert) => (
-                  <a 
+                  <a
+                    key={cert.title}
                     href={cert.href}
                     rel="noopener noreferrer"
                     target="_blank"
-                    className='block'
+                    className="block group"
                   >
-                  <div key={cert.title} className="glass-card p-4 hover:border-primary/30 transition-all">
-                    <div className="flex items-start justify-between gap-2">
-                      <div>
-                        <h4 className="font-medium text-foreground mb-1">{cert.title}</h4>
-                        <p className="text-sm text-muted-foreground">{cert.issuer}</p>
+                    <div className="glass-card p-4 hover:border-primary/40 transition-all duration-200">
+                      <div className="flex items-start justify-between gap-2">
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center gap-2 flex-wrap">
+                            <h4 className="font-medium text-foreground group-hover:text-primary transition-colors">
+                              {cert.title}
+                            </h4>
+                            <ExternalLink className="w-3 h-3 text-muted-foreground group-hover:text-primary transition-colors shrink-0" />
+                          </div>
+                          <p className="text-sm text-muted-foreground mt-0.5">{cert.issuer}</p>
+                        </div>
+                        <span className={`px-2 py-0.5 text-xs font-mono rounded shrink-0 ${cert.badgeColor}`}>
+                          {cert.badge}
+                        </span>
                       </div>
-                      {cert.active && (
-                        <span className="px-2 py-0.5 bg-terminal-green/20 text-terminal-green text-xs font-mono rounded">
-                          ACTIVE
-                        </span>
-                      )}
-                      {!cert.active && (
-                        <span className="px-2 py-0.5 bg-terminal-red/20 text-terminal-red text-xs font-mono rounded">
-                          INACTIVE
-                        </span>
-                      )}
+                      <div className="flex items-center gap-1 mt-2 text-xs text-muted-foreground">
+                        <Calendar className="w-3 h-3" />
+                        <span className="font-mono">{cert.date}</span>
+                      </div>
                     </div>
-                    <div className="flex items-center gap-1 mt-2 text-xs text-muted-foreground">
-                      <Calendar className="w-3 h-3" />
-                      <span className="font-mono">{cert.date}</span>
-                    </div>
-                  </div>
                   </a>
                 ))}
               </div>
@@ -94,7 +103,10 @@ const Certifications = () => {
                 </h3>
                 <div className="space-y-3">
                   {awards.map((award) => (
-                    <div key={award.title} className="glass-card p-4 hover:border-accent/30 transition-all">
+                    <div
+                      key={award.title}
+                      className="glass-card p-4 hover:border-accent/30 transition-all"
+                    >
                       <h4 className="font-medium text-foreground mb-1">{award.title}</h4>
                       <p className="text-sm text-muted-foreground">{award.issuer}</p>
                     </div>
